@@ -1,0 +1,66 @@
+.overlay {
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.input-field {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    width: 400px;
+
+}
+
+@media (max-width:480px) {
+    .input-field {
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        width: 250px;
+    }
+}
+
+.button-search {
+    margin-left: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.products-list-container {
+    padding: 30px;
+}
+
+.products-list-container>h1 {
+    margin-bottom: 40px;
+}
+
+.product {
+    width: 100%;
+    margin-bottom: 36px;
+}
+
+.product p {
+    margin: 0;
+}
+
+.product-market {}
+
+.product-name {}
+
+.product-price {
+    font-weight: bold;
+
+}
