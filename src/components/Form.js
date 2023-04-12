@@ -1,7 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import './Form.css';
 import Products from './Products';
-import background from '../images/background.jpg';
+import background from '../images/opa.png';
+import Header from './Header';
+import Markets from './Markets';
 
 const Form = () => {
 
@@ -14,13 +16,20 @@ const Form = () => {
         setIsLoading(true);
 
         try {
-            //`/superfinder/find?term=${inputSearchRef.current.value}`
-            const response = await fetch(`http://localhost:8080/find?term=${inputSearchRef.current.value}`, {
+
+            const response = await fetch(`/superfinder/find?term=${inputSearchRef.current.value}`, {
                 method: 'GET',
                 headers: {
                     Accept: 'application/json',
                 },
             });
+
+            /*const response = await fetch(`http://localhost:8080/find?term=${inputSearchRef.current.value}`, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json',
+                },
+            });*/
 
             if (!response.ok) {
                 throw new Error(`Error! status: ${response.status}`);
@@ -41,21 +50,25 @@ const Form = () => {
 
     return (
         <>
-            <div className="overlay"
-                style={{ backgroundImage: `url(${background})` }}>
-                <div className="form-container">
-                    {isLoading && <h2>Loading...</h2>}
-                    <input
-                        ref={inputSearchRef}
-                        id="search-text"
-                        name="search-text"
-                        className="input-field"
-                        type="text"
-                        placeholder="Buscar" />
-                    <button onClick={handleClick} className="button-search"><i className="fa fa-search"></i></button>
+            <div className="background" style={{ backgroundImage: `url(${background})` }}>
+                <Header></Header>
+                <div className="overlay">
+                    <div className="form-container">
+                        <div className='loading'>
+                            {isLoading && <span>Loading...</span>}
+                        </div>
+                        <input
+                            ref={inputSearchRef}
+                            id="search-text"
+                            name="search-text"
+                            className="input-field"
+                            type="text"
+                            placeholder="Buscar" />
+                        <button onClick={handleClick} className="button-search" title="search"><i className="fa fa-search"></i></button>
+                    </div>
+                    <Markets></Markets>
                 </div>
             </div>
-
             {products ?
                 (<Products products={products}></Products>) : <></>
             }

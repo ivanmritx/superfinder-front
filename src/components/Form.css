@@ -1,14 +1,22 @@
-.overlay {
+.background{
     height: 100vh;
     width: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+.overlay {
+    height: calc(100vh - 328px);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 
+}
+
+.loading {
+    height: 36px;
+    font-weight: bold;
 }
 
 .input-field {
@@ -37,30 +45,4 @@
     padding: 10px;
     border-radius: 5px;
     border: none;
-}
-
-.products-list-container {
-    padding: 30px;
-}
-
-.products-list-container>h1 {
-    margin-bottom: 40px;
-}
-
-.product {
-    width: 100%;
-    margin-bottom: 36px;
-}
-
-.product p {
-    margin: 0;
-}
-
-.product-market {}
-
-.product-name {}
-
-.product-price {
-    font-weight: bold;
-
 }

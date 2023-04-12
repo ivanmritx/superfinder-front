@@ -1,0 +1,24 @@
+.market-container {
+    margin-top: 52px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.market-container  span {
+    margin-top: 52px;
+    text-align: center;
+    font-size: 24px;
+}
+.market-list{
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.market-list img {
+    height: 44px;
+    margin: 20px;
+    border-radius: 8px;
+}

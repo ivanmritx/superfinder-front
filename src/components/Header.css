@@ -1,0 +1,21 @@
+.header{
+    height: 200px;
+    text-align: center;
+    padding-top: 64px;
+}
+
+.header span {
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.header p {
+    font-size: 24px;
+    margin-top: 42px;
+}
+
+@media (max-width:480px) {
+    .header span {
+        font-size: 48px;
+    }
+}
