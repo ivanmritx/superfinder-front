@@ -24,12 +24,12 @@ const Form = () => {
                 },
             });
 
-            /*const response = await fetch(`http://localhost:8080/find?term=${inputSearchRef.current.value}`, {
+            /*const response = await fetch(`http://192.168.0.14/superfinder/find?term=${inputSearchRef.current.value}`, {
                 method: 'GET',
                 headers: {
                     Accept: 'application/json',
                 },
-            });*/
+            }); */
 
             if (!response.ok) {
                 throw new Error(`Error! status: ${response.status}`);
@@ -50,13 +50,12 @@ const Form = () => {
 
     return (
         <>
+            {isLoading &&  <div className='loading'></div>}
+           
             <div className="background" style={{ backgroundImage: `url(${background})` }}>
                 <Header></Header>
                 <div className="overlay">
                     <div className="form-container">
-                        <div className='loading'>
-                            {isLoading && <span>Loading...</span>}
-                        </div>
                         <input
                             ref={inputSearchRef}
                             id="search-text"
@@ -64,7 +63,7 @@ const Form = () => {
                             className="input-field"
                             type="text"
                             placeholder="Buscar" />
-                        <button onClick={handleClick} className="button-search" title="search"><i className="fa fa-search"></i></button>
+                        <button onClick={handleClick} className="button-search" title="Buscar"><i className="fa fa-search"></i></button>
                     </div>
                     <Markets></Markets>
                 </div>

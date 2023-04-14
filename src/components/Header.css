@@ -1,21 +1,44 @@
-.header{
+.header {
     height: 200px;
     text-align: center;
     padding-top: 64px;
+    margin: 0 40px;
 }
 
-.header span {
+.header h1 {
     font-size: 60px;
     font-weight: bold;
 }
 
-.header p {
+.header h2 {
     font-size: 24px;
     margin-top: 42px;
+    font-weight: normal;
 }
 
-@media (max-width:480px) {
-    .header span {
+@media (max-width:690px) {
+    .header h1 {
         font-size: 48px;
+    }
+}
+
+@media (max-width:515px) {
+    .overlay {
+        height: calc(100vh - 240px);
+    }
+
+    .header {
+        margin: 0 24px;
+        padding-top: 40px;
+    }
+
+    .header h1 {
+        font-size: 36px;
+    }
+
+    .header h2 {
+        font-size: 20px;
+        margin-top: 42px;
+        font-weight: normal;
     }
 }
