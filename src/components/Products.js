@@ -5,7 +5,9 @@ const Products = (props) => {
     //console.log(props);
     const { products } = props;
     const divSearchRef = useRef(null);
-    divSearchRef.current?.scrollIntoView({ behavior: "smooth" });
+    if(divSearchRef.current){
+        divSearchRef.current.scrollIntoView({ behavior: "smooth" });
+    }
 
     useEffect(() => {
         divSearchRef.current.scrollIntoView({ behavior: "smooth" });
