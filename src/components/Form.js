@@ -5,6 +5,8 @@ import Products from './Products';
 import background from '../images/opa.png';
 import Header from './Header';
 import Markets from './Markets';
+import About from './About';
+
 
 const Form = () => {
 
@@ -18,9 +20,9 @@ const Form = () => {
 
         try {
             var apiUrl = "/superfinder";
-            if (process.env.REACT_APP_API==="local") {
+            if (process.env.REACT_APP_API === "local") {
                 apiUrl = "http://localhost:8080";
-            } else if (process.env.REACT_APP_API==="remote") {
+            } else if (process.env.REACT_APP_API === "remote") {
                 apiUrl = "http://192.168.0.14/superfinder";
             }
 
@@ -69,8 +71,8 @@ const Form = () => {
     return (
         <>
             {isLoading && <div className='loading'></div>}
-
             <div className="background" style={{ backgroundImage: `url(${background})` }}>
+                <About></About>
                 <Header></Header>
                 <div className="overlay">
                     <div className="form-container">

@@ -24,12 +24,12 @@
 
 @media (max-width:515px) {
     .overlay {
-        height: calc(100vh - 240px);
+        height: calc(100vh - 310px);
     }
 
     .header {
         margin: 0 24px;
-        padding-top: 40px;
+        padding-top: 0px;
     }
 
     .header h1 {

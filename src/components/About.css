@@ -1,0 +1,64 @@
+.info-ico {
+  text-align: right;
+  padding: 20px;
+}
+
+.info-ico img {
+  height: 36px;
+  width: auto;
+  cursor: pointer;
+}
+
+.modal-about {
+  font-size: 14px;
+  background-color: white;
+  border-color: black;
+  padding: 20px;
+  border-width: thin;
+  border-radius: 16px 0 16px 0;
+  border-style: solid;
+  width: 500px;
+}
+
+@media (max-width:600px) {
+  .modal-about {
+    width: auto;
+    margin: 20px;
+  }
+
+  .modal-about>.close-about {
+    margin: 20px;
+  }
+}
+
+.modal-about>.header-about {
+  width: 100%;
+  border-bottom: 1px solid gray;
+  font-size: 18px;
+  text-align: center;
+  padding: 5px;
+}
+
+.modal-about>.content-about {
+  width: 100%;
+  padding: 10px 5px;
+}
+
+.modal-about>.close-about {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: -10px;
+  top: -10px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
+}
+
+.github-ico{
+  height: 90px;
+  width: auto;
+}
