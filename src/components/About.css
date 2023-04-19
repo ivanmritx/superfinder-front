@@ -3,6 +3,13 @@
   padding: 20px;
 }
 
+@media (max-width:480px) {
+  .info-ico {
+    margin-bottom: 40px;
+  }
+}
+
+
 .info-ico img {
   height: 36px;
   width: auto;

@@ -3,6 +3,10 @@
     text-align: center;
     padding-top: 64px;
     margin: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .header h1 {
@@ -12,8 +16,8 @@
 
 .header h2 {
     font-size: 24px;
-    margin-top: 42px;
     font-weight: normal;
+    max-width: 900px;
 }
 
 @media (max-width:690px) {
