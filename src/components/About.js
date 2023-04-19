@@ -25,7 +25,7 @@ const About = () => {
               <p>Esta aplicación web ha sido creada sin animo de lucro.</p> 
               <p>Su código fuente se encuentra publicado en github:</p>
               <div><a href="https://github.com/ivanmritx" target="_blank" rel="noopener noreferrer"><img className="github-ico" height="360px" width="360px"  src={github} alt="github"></img></a></div>
-              <p>v 0.0.1</p> 
+              <p>v 0.0.2</p> 
             </div>
           </div>
         )}
