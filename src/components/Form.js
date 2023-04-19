@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import ReactGA from "react-ga4";
 import './Form.css';
 import Products from './Products';
-import background from '../images/opa.png';
+import background from '../images/opa.jpg';
 import Header from './Header';
 import Markets from './Markets';
 import About from './About';
