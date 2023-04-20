@@ -12,7 +12,7 @@ const Form = () => {
 
     const [products, setProducts] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
-    const [err, setErr] = useState('');
+    //const [err, setErr] = useState('');
     const inputSearchRef = useRef(null);
 
     const handleClick = async () => {
@@ -61,12 +61,18 @@ const Form = () => {
 
 
         } catch (err) {
-            setErr(err.message);
+            //setErr(err.message);
+            console.log("Se ha producido un error inesperado.")
         } finally {
             setIsLoading(false);
-
         }
     };
+
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            handleClick();
+        }
+      };
 
     return (
         <>
@@ -82,7 +88,8 @@ const Form = () => {
                             name="search-text"
                             className="input-field"
                             type="text"
-                            placeholder="Buscar" />
+                            placeholder="Producto a buscar"
+                            onKeyDown={handleKeyDown} />
                         <button onClick={handleClick} className="button-search" title="Buscar"><i className="fa fa-search"></i></button>
                     </div>
                     <Markets></Markets>
