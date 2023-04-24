@@ -16,6 +16,13 @@
   cursor: pointer;
 }
 
+.info-ico svg {
+  height: 36px;
+  width: auto;
+  cursor: pointer;
+  margin-right: 24px;
+}
+
 .modal-about {
   font-size: 14px;
   background-color: white;
@@ -33,9 +40,20 @@
     margin: 20px;
   }
 
+  .modal-about>.content-cookies {
+    overflow-y: scroll;
+    height: 300px;
+    overflow-x: scroll;
+  }
+
   .modal-about>.close-about {
     margin: 20px;
   }
+
+}
+
+.cookies-table {
+  margin-top: 20px;
 }
 
 .modal-about>.header-about {
@@ -49,6 +67,12 @@
 .modal-about>.content-about {
   width: 100%;
   padding: 10px 5px;
+}
+
+.modal-about>.content-cookies {
+  overflow-y: scroll;
+  height: 300px;
+  overflow-x: hidden;
 }
 
 .modal-about>.close-about {

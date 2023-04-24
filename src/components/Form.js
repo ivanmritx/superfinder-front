@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import ReactGA from "react-ga4";
+import { getCookieConsentValue } from "react-cookie-consent";
 import './Form.css';
 import Products from './Products';
 import background from '../images/opa.jpg';
@@ -14,6 +15,7 @@ const Form = () => {
     const [isLoading, setIsLoading] = useState(false);
     //const [err, setErr] = useState('');
     const inputSearchRef = useRef(null);
+    const marketRef = useRef(null);
 
     const handleClick = async () => {
         setIsLoading(true);
@@ -33,7 +35,7 @@ const Form = () => {
                 },
             });
 
-            if (!response.ok) {
+            if (!response.ok && !getCookieConsentValue(("disclaimercookie"))) {
                 ReactGA.event({
                     category: "Search",
                     action: "Search error",
@@ -50,14 +52,16 @@ const Form = () => {
             setProducts(result);
 
             // Send a custom event
-            ReactGA.event({
-                category: "Search",
-                action: "Search results",
-                label: "Search", // optional
-                value: result.length, // optional, must be a number
-                nonInteraction: false, // optional, true/false
-                transport: "xhr", // optional, beacon/xhr/image
-            });
+            if (!getCookieConsentValue(("disclaimercookie"))) {
+                ReactGA.event({
+                    category: "Search",
+                    action: "Search results",
+                    label: "Search", // optional
+                    value: result.length, // optional, must be a number
+                    nonInteraction: false, // optional, true/false
+                    transport: "xhr", // optional, beacon/xhr/image
+                });
+            }
 
 
         } catch (err) {
@@ -65,6 +69,10 @@ const Form = () => {
             console.log("Se ha producido un error inesperado.")
         } finally {
             setIsLoading(false);
+            window.scrollTo({
+                top: marketRef.current.offsetTop + 280,
+                behavior: 'smooth',
+            });
         }
     };
 
@@ -72,7 +80,7 @@ const Form = () => {
         if (event.key === 'Enter') {
             handleClick();
         }
-      };
+    };
 
     return (
         <>
@@ -90,9 +98,11 @@ const Form = () => {
                             type="text"
                             placeholder="Producto a buscar"
                             onKeyDown={handleKeyDown} />
-                        <button onClick={handleClick} className="button-search" title="Buscar"><i className="fa fa-search"></i></button>
+                        <button onClick={() => handleClick()} className="button-search" title="Buscar"><i className="fa fa-search"></i></button>
                     </div>
-                    <Markets></Markets>
+                    <div ref={marketRef}>
+                        <Markets ></Markets>
+                    </div>
                 </div>
             </div>
             {products ?

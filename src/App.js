@@ -3,15 +3,23 @@ import ReactGA from "react-ga4";
 import './App.css';
 import Form from './components/Form';
 import {CookieConsent,getCookieConsentValue } from "react-cookie-consent";
+import Cookies from 'universal-cookie';
 
 ReactGA.initialize('G-D6FTBSGCW9');
 
 function App() {
 
   useEffect(() => {
-    if(getCookieConsentValue){
+    //console.log(getCookieConsentValue("disclaimercookie"))
+    if(getCookieConsentValue(("disclaimercookie"))){
       ReactGA.send({ hitType: "pageview", page: "/home", title: "Home" });
       //console.log('Analitycs ', window.location.pathname + window.location.search);
+    } else {
+      const cookies = new Cookies();
+          cookies.remove('_ga',{ path: '/' });
+          cookies.remove('_ga_D6FTBSGCW9',{ path: '/' });
+          cookies.remove('_gat',{ path: '/' });
+          cookies.remove('_gid',{ path: '/' });
     }
   }, [])
 
@@ -28,6 +36,15 @@ function App() {
         overlay="true"
         onAccept={() => {
           ReactGA.send({ hitType: "pageview", page: "/home", title: "Home" });
+        }}
+        enableDeclineButton="true"
+        declineButtonText="RECHAZAR"
+        onDecline={()=>{
+          const cookies = new Cookies();
+          cookies.remove('_ga',{ path: '/' });
+          cookies.remove('_ga_D6FTBSGCW9',{ path: '/' });
+          cookies.remove('_gat',{ path: '/' });
+          cookies.remove('_gid',{ path: '/' });
         }}
       >
         Esta web utiliza cookies propias y de terceros para ofrecer un mejor servicio. Si continúa navegando consideramos que acepta su uso.
