@@ -8,6 +8,10 @@ const Products = (props) => {
     const divSearchRef = useRef(null);
     const [showTopBtn, setShowTopBtn] = useState(false);
 
+    /*if(divSearchRef.current){
+        divSearchRef.current.scrollIntoView({ behavior: "smooth" });
+    }*/
+
     const goToTop = () => {
         window.scrollTo({
             top: 0,

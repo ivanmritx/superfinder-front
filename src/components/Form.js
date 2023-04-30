@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import ReactGA from "react-ga4";
 import { getCookieConsentValue } from "react-cookie-consent";
+import Cookies from 'universal-cookie';
 import './Form.css';
 import Products from './Products';
 import background from '../images/opa.jpg';
@@ -53,6 +54,7 @@ const Form = () => {
 
             // Send a custom event
             if (!getCookieConsentValue(("disclaimercookie"))) {
+                console.log("Disclaimerval: dentro");
                 ReactGA.event({
                     category: "Search",
                     action: "Search results",
@@ -61,6 +63,12 @@ const Form = () => {
                     nonInteraction: false, // optional, true/false
                     transport: "xhr", // optional, beacon/xhr/image
                 });
+            } else {
+                const cookies = new Cookies();
+                cookies.remove('_ga', { path: '/' });
+                cookies.remove('_ga_D6FTBSGCW9', { path: '/' });
+                cookies.remove('_gat', { path: '/' });
+                cookies.remove('_gid', { path: '/' });
             }
 
 
