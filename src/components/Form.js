@@ -16,7 +16,6 @@ const Form = () => {
     const [isLoading, setIsLoading] = useState(false);
     //const [err, setErr] = useState('');
     const inputSearchRef = useRef(null);
-    const marketRef = useRef(null);
 
     const handleClick = async () => {
         setIsLoading(true);
@@ -54,7 +53,7 @@ const Form = () => {
 
             // Send a custom event
             if (!getCookieConsentValue(("disclaimercookie"))) {
-                console.log("Disclaimerval: dentro");
+
                 ReactGA.event({
                     category: "Search",
                     action: "Search results",
@@ -77,10 +76,7 @@ const Form = () => {
             console.log("Se ha producido un error inesperado.")
         } finally {
             setIsLoading(false);
-            window.scrollTo({
-                top: marketRef.current.offsetTop + 280,
-                behavior: 'smooth',
-            });
+          
         }
     };
 
@@ -108,7 +104,7 @@ const Form = () => {
                             onKeyDown={handleKeyDown} />
                         <button onClick={() => handleClick()} className="button-search" title="Buscar"><i className="fa fa-search"></i></button>
                     </div>
-                    <div ref={marketRef}>
+                    <div>
                         <Markets ></Markets>
                     </div>
                 </div>
