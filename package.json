@@ -1,6 +1,6 @@
 {
   "name": "superfinder-spa",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -12,6 +12,7 @@
     "react-dom": "^18.2.0",
     "react-ga4": "^2.1.0",
     "react-icons": "^4.8.0",
+    "react-lazy-load-image-component": "^1.6.0",
     "react-scripts": "^2.1.3",
     "reactjs-popup": "^2.0.5",
     "universal-cookie": "^4.0.4",

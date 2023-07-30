@@ -33,3 +33,66 @@
         margin-top: -290px;
     }
 }
+
+.flex {
+    display: flex; /* Make products flex in row direction (default) */
+    flex-wrap: wrap; /* Make products overflow on new row */
+    justify-content: center; /* Or space-between or space-around */
+    gap: 50px;
+  }
+  
+  .flex > section {
+    flex: 1 1 0; /* Prevent the extra space around content */
+    text-align: center; /* Align text on center */
+    display: flex; /* Display as flex */
+    flex-direction: column; /* Display flex in column */
+    align-items: center; /* Align items on center */
+  }
+  
+  .flex > section > p {
+    flex-grow: 1; /* Keep p's same size */
+    font-weight: bold;
+  }
+
+  .flex > section > div {
+    width: 250px;
+    min-height: 250px;
+  }
+
+  .flex > section > div > img {
+    width: 100%;
+  }
+
+  .flex > section > h2 {
+    font-size: 14px;
+    font-weight: normal;
+    min-height: 40px;
+  }
+
+  
+  
+  ul {
+    display: flex; /* Display specs in flex-row */
+    justify-content: space-between; /* Specs to start and end of row */
+  }
+
+  @media (max-width:480px) {
+    .flex > section > h2 {
+      min-height: auto
+  }
+
+  .flex {
+    gap: 15px;
+  }
+
+  .flex > section  {
+    border-bottom: 1px solid rgb(83, 81, 81);
+    padding-bottom: 25px;
+  }
+
+  .flex > section > div {
+    width: 250px;
+    min-height: auto;
+  }
+ 
+}
