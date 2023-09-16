@@ -4,10 +4,8 @@ import { getCookieConsentValue } from "react-cookie-consent";
 import Cookies from 'universal-cookie';
 import './Form.css';
 import Products from './Products';
-import background from '../images/opa.jpg';
 import Header from './Header';
 import Markets from './Markets';
-import About from './About';
 
 
 const Form = () => {
@@ -52,12 +50,21 @@ const Form = () => {
             setProducts(result);
 
             // Send a custom event
-            if (!getCookieConsentValue(("disclaimercookie"))) {
+            if (getCookieConsentValue(("disclaimercookie"))) {
 
                 ReactGA.event({
                     category: "Search",
-                    action: "Search results",
-                    label: "Search", // optional
+                    action: `Search Results`,
+                    label: `Search`, // optional
+                    value: result.length, // optional, must be a number
+                    nonInteraction: false, // optional, true/false
+                    transport: "xhr", // optional, beacon/xhr/image
+                });
+
+                ReactGA.event({
+                    category: "Search",
+                    action: `Search Results: ${inputSearchRef.current.value}`,
+                    label: `Search ${inputSearchRef.current.value}`, // optional
                     value: result.length, // optional, must be a number
                     nonInteraction: false, // optional, true/false
                     transport: "xhr", // optional, beacon/xhr/image
@@ -89,9 +96,8 @@ const Form = () => {
     return (
         <>
             {isLoading && <div className='loading'></div>}
-            <div className="background" style={{ backgroundImage: `url(${background})` }}>
-                <About></About>
-                <Header></Header>
+            <div >
+                <Header title="Super más barato" subtitle="Busca y compara los precios de productos en distintas cadenas de supermercados de España. Encuentra los productos al precio más barato y ahorra dinero en tu próxima lista de la compra."></Header>
                 <div className="overlay">
                     <div className="form-container">
                         <input

@@ -1,14 +1,27 @@
 import React from 'react';
 import Popup from 'reactjs-popup';
-import { FaCookieBite } from 'react-icons/fa';
+import {Link, useLocation} from "react-router-dom";
+import { FaCookieBite, FaBlogger} from 'react-icons/fa';
+import { BsFillArrowLeftSquareFill} from 'react-icons/bs';
 import './About.css';
 import info from '../images/info.png'
 import github from '../images/github.png'
 
 
 const About = () => {
+  const location = useLocation();
+  const isBlogIndex  = location.pathname.endsWith('blog');
+  const isBlogDetail = location.pathname.includes('blog/')
+
   return (
     <div className="info-ico">
+    <div className="info-ico-left">
+      <Link to="/" style={{color:"#000000", display: isBlogIndex?'block':'none'}}><BsFillArrowLeftSquareFill /></Link>
+      <Link to="blog" style={{color:"#000000", display: isBlogDetail?'block':'none'}}><BsFillArrowLeftSquareFill /></Link>
+    </div>
+    <div className="info-ico-right">
+      
+      <Link to="/blog" style={{color:"#000000"}}><FaBlogger /></Link>
       <Popup
         trigger={
           <span ><FaCookieBite /></span>
@@ -101,12 +114,13 @@ const About = () => {
               <p>Esta aplicación web ha sido creada sin ánimo de lucro.</p>
               <p>Su código fuente se encuentra publicado en github:</p>
               <div><a href="https://github.com/ivanmritx" target="_blank" rel="noopener noreferrer"><img className="github-ico" height="360px" width="360px" src={github} alt="github"></img></a></div>
-              <p>Frontend: v0.0.5</p>
-              <p>Backend:  v0.0.1</p>
+              <p>Frontend: v0.0.7</p>
+              <p>Backend:  v0.0.4</p>
             </div>
           </div>
         )}
       </Popup>
+    </div>
     </div>
   );
 }

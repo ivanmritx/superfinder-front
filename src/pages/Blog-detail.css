@@ -1,0 +1,17 @@
+.body-blog {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    padding-bottom: 100px;
+}
+
+.background {
+    
+    min-height: 100vh;
+}
+
+@media (max-width:790px) {
+    .body-blog  {
+        width: 85%;
+    }
+}
