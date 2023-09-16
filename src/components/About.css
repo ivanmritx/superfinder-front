@@ -1,6 +1,19 @@
 .info-ico {
-  text-align: right;
   padding: 20px;
+  flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.info-ico-right {
+  text-align: right;
+  width: 90%;
+}
+
+.info-ico-left{
+  text-align: left;
+  width: 10%;
 }
 
 @media (max-width:480px) {

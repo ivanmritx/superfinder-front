@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaAngleUp } from 'react-icons/fa';
 import './AngleUp.css';
 

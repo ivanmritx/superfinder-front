@@ -1,0 +1,18 @@
+.blog-list-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.blog-list-li{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+@media (max-width:790px) {
+    .blog-list-li  {
+        width: 85%;
+    }
+}
