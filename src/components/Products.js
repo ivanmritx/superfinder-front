@@ -6,15 +6,14 @@ import './Products.css';
 const Products = (props) => {
     //console.log(props);
     const { products } = props;
+    const { isLoading } = props;
     const divSearchRef = useRef(null);
 
-    if (divSearchRef.current) {
-        divSearchRef.current.scrollIntoView({ behavior: "smooth" });
-    }
+
 
     useEffect(() => {
         divSearchRef.current.scrollIntoView({ behavior: "smooth" });
-    }, []);
+    }, [isLoading]);
 
     return (
         <>
@@ -24,10 +23,10 @@ const Products = (props) => {
             </svg>
             <div ref={divSearchRef} className='products-list-container'>
                 <h1>Resultados</h1>
-                <div class="flex">
+                <div className="flex">
                     {products.map((product, index) => (
 
-                        <section>
+                        <section key={index}>
                             <div>
                                 <LazyLoadImage
                                     alt="Product image"

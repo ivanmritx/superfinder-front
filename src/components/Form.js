@@ -1,4 +1,6 @@
 import React, { useState, useRef } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import ReactGA from "react-ga4";
 import { getCookieConsentValue } from "react-cookie-consent";
 import Cookies from 'universal-cookie';
@@ -12,12 +14,25 @@ const Form = () => {
 
     const [products, setProducts] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
+    const [selections, setSelections] = useState({});
     //const [err, setErr] = useState('');
     const inputSearchRef = useRef(null);
 
-    const handleClick = async () => {
-        setIsLoading(true);
+    const onSelectionChange = (newSelections) => {
+        setSelections(newSelections);
+      };
 
+    const handleClick = async () => {
+        if(inputSearchRef.current.value===""){
+            return;
+        }
+
+        if(!selections || Object.values(selections).every(value => !value) ){
+            toast.error('Selecciona al menos un supermercado del listado inferior.');
+            return;
+        }
+
+        setIsLoading(true);
         try {
             var apiUrl = "/superfinder";
             if (process.env.REACT_APP_API === "local") {
@@ -26,7 +41,10 @@ const Form = () => {
                 apiUrl = "http://192.168.0.14/superfinder";
             }
 
-            const response = await fetch(`${apiUrl}/find?term=${inputSearchRef.current.value}`, {
+            localStorage.setItem('selections', JSON.stringify(selections));
+
+            const selectedMarkets = Object.keys(selections).filter(market => selections[market]);
+            const response = await fetch(`${apiUrl}/find?term=${inputSearchRef.current.value}&markets=${selectedMarkets.join(',')}`, {
                 method: 'GET',
                 headers: {
                     Accept: 'application/json',
@@ -95,6 +113,7 @@ const Form = () => {
 
     return (
         <>
+            <ToastContainer />
             {isLoading && <div className='loading'></div>}
             <div >
                 <Header title="Super más barato" subtitle="Busca y compara los precios de productos en distintas cadenas de supermercados de España. Encuentra los productos al precio más barato y ahorra dinero en tu próxima lista de la compra."></Header>
@@ -111,12 +130,12 @@ const Form = () => {
                         <button onClick={() => handleClick()} className="button-search" title="Buscar"><i className="fa fa-search"></i></button>
                     </div>
                     <div>
-                        <Markets ></Markets>
+                        <Markets onSelectionChange={onSelectionChange}></Markets>
                     </div>
                 </div>
             </div>
             {products ?
-                (<Products products={products}></Products>) : <></>
+                (<Products products={products} isLoading={isLoading}></Products>) : <></>
             }
 
         </>

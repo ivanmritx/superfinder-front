@@ -1,5 +1,4 @@
 import React  from 'react';
-import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
@@ -7,7 +6,7 @@ import Blog from "./pages/Blog";
 import NoPage from "./pages/NoPage";
 import BlogDetail from './pages/Blog-detail';
 
-export default function App() {
+const App = () => {
   return (
     <BrowserRouter>
       <Routes>
@@ -22,5 +21,4 @@ export default function App() {
   );
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
+export default App;

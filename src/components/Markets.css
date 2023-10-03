@@ -23,3 +23,12 @@
     margin: 20px;
     border-radius: 8px;
 }
+
+.market-list img:hover {
+    cursor: pointer;
+}
+
+.market-selected {
+    -webkit-filter: grayscale(1) invert(0);
+    filter: grayscale(1) invert(0);
+}
