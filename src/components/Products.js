@@ -35,6 +35,11 @@ const Products = (props) => {
                             </div>
                             <h2>{product.name}</h2>
                             <p>{product.market}: {product.productPrice}</p>
+                            {product.priceUnitOrKg && (
+                                <p className="unitPrice">
+                                    ({product.priceUnitOrKg})
+                                </p>
+                            )}
                         </section>
 
                     ))}</div>
