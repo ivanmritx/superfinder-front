@@ -9,6 +9,8 @@ import masymas from '../images/masymas.png'
 import mercadona from '../images/mercadona.png'
 import aldi from '../images/aldi.svg'
 import gadis from '../images/gadis.jpg'
+import alcampo from '../images/alcampo.png'
+import consum from '../images/consum.png'
 
 const Markets = ({ onSelectionChange }) => {
 
@@ -106,6 +108,26 @@ const Markets = ({ onSelectionChange }) => {
                             alt="Logo Aldi"
                             onClick={event => handleSelection(event, 'ALDI')}
                             className={`${selections.ALDI ? '' : 'market-selected'}`}
+                        />
+                    </div>
+                    <div>
+                        <img
+                            height="1080px"
+                            width="1080px"
+                            src={alcampo}
+                            alt="Logo Alcampo"
+                            onClick={event => handleSelection(event, 'ALCAMPO')}
+                            className={`${selections.ALCAMPO ? '' : 'market-selected'}`}
+                        />
+                    </div>
+                    <div>
+                        <img
+                            height="120px"
+                            width="120px"
+                            src={consum}
+                            alt="Logo Consum"
+                            onClick={event => handleSelection(event, 'CONSUM')}
+                            className={`${selections.CONSUM ? '' : 'market-selected'}`}
                         />
                     </div>
                     <div>
