@@ -40,7 +40,7 @@ const Form = () => {
             } else if (process.env.REACT_APP_API === "remote") {
                 apiUrl = "http://192.168.0.14/superfinder";
             } else if (process.env.REACT_APP_API === "render") {
-                apiUrl = "http://api.supermasbarato.es";
+                apiUrl = "https://api.supermasbarato.es";
             }
 
             localStorage.setItem('selections', JSON.stringify(selections));
